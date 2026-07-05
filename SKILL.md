@@ -18,8 +18,10 @@ You (Fable) are the orchestrator. **Plan, decompose, synthesize.** Keep your own
 | Mechanical work (boilerplate, tests, formatting, simple edits)                    | `fast-worker`          |
 | Broad read-only search / sweeping many files                                      | `explorer` (`Explore`) |
 
-> These are the agent names this workflow expects. If your setup uses different
-> subagent types, map each row to the closest equivalent you have available.
+> Reference definitions for these three agents ship with this skill in the
+> [`agents/`](./agents) directory — install them into `.claude/agents/` (see the
+> README). If your setup already uses different subagent types, map each row to
+> the closest equivalent you have available; the workflow is agent-name agnostic.
 
 ## High-stakes decisions
 

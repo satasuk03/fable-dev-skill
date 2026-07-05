@@ -32,6 +32,24 @@ git clone https://github.com/satasuk03/fable-dev-skill.git .claude/skills/dev-fa
 
 Then restart Claude Code (or start a new session) so it picks up the skill.
 
+### Install the subagents (recommended)
+
+The workflow delegates to three subagents — `deep-reasoner`, `fast-worker`, and
+`explorer` — whose reference definitions ship in [`agents/`](./agents). Subagents
+live in `.claude/agents/` (a *different* directory from skills), so copy them in:
+
+```bash
+# Personal
+mkdir -p ~/.claude/agents && cp ~/.claude/skills/dev-fable/agents/*.md ~/.claude/agents/
+
+# Or project-scoped
+mkdir -p .claude/agents && cp .claude/skills/dev-fable/agents/*.md .claude/agents/
+```
+
+These are sensible defaults — tune the `model` and `tools` in each file to taste.
+If you already have equivalent agents, skip this and map the routing table in
+`SKILL.md` to your own agent names instead.
+
 ## Use
 
 - **Automatically** — Claude invokes the skill on its own when a request matches the description (coordinating multi-step development work).
@@ -39,7 +57,15 @@ Then restart Claude Code (or start a new session) so it picks up the skill.
 
 ## Subagents
 
-The routing table in `SKILL.md` refers to subagent types (`deep-reasoner`, `fast-worker`, `explorer`). If your Claude Code setup uses different agent names, map each row to the closest equivalent you have available — the workflow itself is agent-name agnostic.
+Reference definitions ship in [`agents/`](./agents):
+
+| Agent | Role | Default model |
+|-------|------|---------------|
+| `deep-reasoner` | Architecture, tricky debugging, algorithm design, tradeoff analysis | `opus` |
+| `fast-worker` | Boilerplate, tests, formatting, simple repetitive edits | `haiku` |
+| `explorer` | Broad read-only search / codebase reconnaissance (never edits) | `sonnet` |
+
+Adjust the `model` and `tools` in each file to fit your setup. If you already use different agent names, skip installing these and map the routing table in `SKILL.md` to your own — the workflow is agent-name agnostic.
 
 ## License
 
