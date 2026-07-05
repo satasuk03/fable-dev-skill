@@ -67,6 +67,12 @@ Reference definitions ship in [`agents/`](./agents):
 
 Adjust the `model` and `tools` in each file to fit your setup. If you already use different agent names, skip installing these and map the routing table in `SKILL.md` to your own — the workflow is agent-name agnostic.
 
+## Credits
+
+Inspired by [Diego Cabezas](https://x.com/diegocabezas01) ([@diegocabezas01](https://x.com/diegocabezas01))
+and his [original tweet](https://x.com/diegocabezas01/status/2072436501263339841)
+on using Fable 5 as an orchestrator with Opus, Sonnet, and Codex subagents.
+
 ## License
 
 [MIT](./LICENSE)
